@@ -1,0 +1,90 @@
+.calc {
+    max-width: 25rem;
+    max-height: 35rem;
+    border: solid black;
+    display: grid;
+    grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [col4-start] 1fr [col-end];
+    grid-template-rows: [row1-start] 1fr [row2-start] 1fr [row3-start] 1fr [row4-start] 1fr [row5-start] 1fr [row6-start] 1fr [row-end];
+    grid-template-areas: 
+        "display-eq display-eq display-eq display-eq"
+        "display-num display-num display-num display-num"
+        "ac ce backspace add"
+        "seven eight nine subtract"
+        "four five six multiply"
+        "one two three divide"
+        "zero decimal equals equals";
+}
+
+.calc__display--equation {
+    grid-area: display-eq;
+    text-align: right;
+}
+
+.calc__display--number {
+    grid-area: display-num;
+    text-align: right;
+}
+
+.calc__buttons {
+    border: solid black;
+    text-align: center;
+}
+
+/* --- BUTTONS --- */
+#ac {
+    grid-area: ac;
+}
+#ce {
+    grid-area: ce;
+}
+#backspace {
+    grid-area: backspace;
+}
+#add {
+    grid-area: add;
+}
+#seven {
+    grid-area: seven;
+}
+#eight {
+    grid-area: eight;
+}
+#nine {
+    grid-area: nine;
+}
+#subtract {
+    grid-area: subtract;
+}
+#four {
+    grid-area: four;
+}
+#five {
+    grid-area: five;
+}
+#six {
+    grid-area: six;
+}
+#multiply {
+    grid-area: multiply;
+}
+#one {
+    grid-area: one;
+}
+#two {
+    grid-area: two;
+}
+#three {
+    grid-area: three;
+}
+#divide {
+    grid-area: divide;
+}
+#zero {
+    grid-area: zero;
+}
+#decimal {
+    grid-area: decimal;
+}
+#equals {
+    grid-area: equals;
+}
