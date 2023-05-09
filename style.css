@@ -1,10 +1,15 @@
+h1 {
+    text-align: center;
+}
+
 .calc {
+    margin: auto;
     max-width: 25rem;
     max-height: 35rem;
     border: solid black;
     display: grid;
     grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [col4-start] 1fr [col-end];
-    grid-template-rows: [row1-start] 1fr [row2-start] 1fr [row3-start] 1fr [row4-start] 1fr [row5-start] 1fr [row6-start] 1fr [row-end];
+    grid-template-rows: [row1-start] 0.75fr [row2-start] 1.5fr [row3-start] 1fr [row4-start] 1fr [row5-start] 1fr [row6-start] 1fr [row-end];
     grid-template-areas: 
         "display-eq display-eq display-eq display-eq"
         "display-num display-num display-num display-num"
@@ -18,16 +23,26 @@
 .calc__display--equation {
     grid-area: display-eq;
     text-align: right;
+    align-self: center;
+    font-size: 1em;
 }
 
-.calc__display--number {
+.calc__display--operand {
     grid-area: display-num;
     text-align: right;
+    align-self: center;
+    font-size: 2em;
 }
 
 .calc__buttons {
-    border: solid black;
     text-align: center;
+    font-size: 1.5em;
+    border: solid black;
+    border-radius: 10%;
+}
+
+.operator:focus {
+    background-color: grey;
 }
 
 /* --- BUTTONS --- */
