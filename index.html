@@ -11,26 +11,27 @@
 <body>
     <h1>Calculator</h1>
     <div class="calc">
-        <div class="calc__display--equation"></div>
+        <div class="calc__display--operation"></div>
         <div class="calc__display--operand"></div>
         <button id="ac" class="calc__buttons all-clear" value="AC">AC</button>
         <button id="ce" class="calc__buttons clear-entry" value="CE">CE</button>
         <button id="backspace" class="calc__buttons backspace">←</button>
-        <button id="add" class="calc__buttons operator" value="+">+</button>
+        <button id="add" class="calc__buttons error-disable operator" value="+">+</button>
         <button id="seven" class="calc__buttons operand" value="7">7</button>
         <button id="eight" class="calc__buttons operand" value="8">8</button>
         <button id="nine" class="calc__buttons operand" value="9">9</button>
-        <button id="subtract" class="calc__buttons operator" value="-">-</button>
+        <button id="subtract" class="calc__buttons error-disable operator" value="-">-</button>
         <button id="four" class="calc__buttons operand" value="4">4</button>
         <button id="five" class="calc__buttons operand" value="5">5</button>
         <button id="six" class="calc__buttons operand" value="6">6</button>
-        <button id="multiply" class="calc__buttons operator" value="*">×</button>
+        <button id="multiply" class="calc__buttons error-disable operator" value="*">×</button>
         <button id="one" class="calc__buttons operand" value="1">1</button>
         <button id="two" class="calc__buttons operand" value="2">2</button>
         <button id="three" class="calc__buttons operand" value="3">3</button>
-        <button id="divide" class="calc__buttons operator" value="/">÷</button>
+        <button id="divide" class="calc__buttons error-disable operator" value="/">÷</button>
+        <button id="plus-minus" class="calc__buttons error-disable plus-minus" value="+/-">+/-</button>
         <button id="zero" class="calc__buttons operand" value="0">0</button>
-        <button id="decimal" class="calc__buttons decimal" value=".">.</button>
+        <button id="decimal" class="calc__buttons error-disable decimal" value=".">.</button>
         <button id="equals" class="calc__buttons equals" value="=">=</button>
     </div>
 </body>

@@ -17,10 +17,10 @@ h1 {
         "seven eight nine subtract"
         "four five six multiply"
         "one two three divide"
-        "zero decimal equals equals";
+        "plus-minus zero decimal equals";
 }
 
-.calc__display--equation {
+.calc__display--operation {
     grid-area: display-eq;
     text-align: right;
     align-self: center;
@@ -39,10 +39,19 @@ h1 {
     font-size: 1.5em;
     border: solid black;
     border-radius: 10%;
+    background-color: lightcyan;
 }
 
-.operator:focus {
-    background-color: grey;
+.calc__buttons:hover {
+    background-color: lightgray;
+}
+
+.calc__buttons:active {
+    background-color: gray;
+}
+
+.error-disable:disabled {
+    background-color: darkslategray;
 }
 
 /* --- BUTTONS --- */
