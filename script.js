@@ -16,17 +16,11 @@ let secondOperandCopy = null;
 let errorMessage = "ERROR";
 
 
-function clickButton() {
+function selectButton() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", function() {
             if (buttons[i].classList.contains("operand")) {
                 selectOperand(buttons[i].value);
-                updateDisplay();
-            } else if (buttons[i].classList.contains("operator")) {
-                selectOperator(buttons[i].value);
-                updateDisplay();
-            } else if (buttons[i].classList.contains("equals")){
-                selectEquals();
                 updateDisplay();
             } else if (buttons[i].classList.contains("decimal")) {
                 addDecimal(buttons[i].value);
@@ -40,6 +34,12 @@ function clickButton() {
             } else if (buttons[i].classList.contains("clear-entry")){
                 clearEntry();
                 updateDisplay();
+            } else if (buttons[i].classList.contains("operator")) {
+                selectOperator(buttons[i].value);
+                updateDisplay();
+            } else if (buttons[i].classList.contains("equals")){
+                selectEquals();
+                updateDisplay();
             } else if (buttons[i].classList.contains("all-clear")){
                 allClear();
                 updateDisplay();
@@ -48,7 +48,7 @@ function clickButton() {
     }
 }
 
-clickButton();
+selectButton();
 
 function updateDisplay() {
     operandDisplay.innerText = displayValue;
