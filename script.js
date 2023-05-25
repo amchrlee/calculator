@@ -173,8 +173,8 @@ function selectOperator(operator) {
         } else {
             secondOperator = operator;
             secondOperand = displayValue;
-            result = operate(Number(firstOperand), firstOperator, Number(secondOperand));
-            displayValue = roundToHundredth(result);
+            result = operate(parseFloat(firstOperand), firstOperator, parseFloat(secondOperand));
+            displayValue = roundAndChangeNotation(result);
             firstOperand = displayValue;
             secondOperand = null;
             result = null;
@@ -185,9 +185,9 @@ function selectOperator(operator) {
             error();
         } else {
             secondOperand = displayValue;
-            result = operate(Number(firstOperand), secondOperator, Number(secondOperand));
+            result = operate(parseFloat(firstOperand), secondOperator, parseFloat(secondOperand));
             secondOperator = operator;
-            displayValue = roundToHundredth(result);
+            displayValue = roundAndChangeNotation(result);
             firstOperand = displayValue;
             secondOperand = null;
             result = null;
@@ -207,11 +207,11 @@ function selectEquals() {
     } else if (secondOperator !== null) {
         // addresses any operation that happens after the first operation
         secondOperand = displayValue;
-        result = operate(Number(firstOperand), secondOperator, Number(secondOperand));
+        result = operate(parseFloat(firstOperand), secondOperator, parseFloat(secondOperand));
         if (isNaN(result)) {
             error();
         } else {
-            displayValue = roundToHundredth(result);
+            displayValue = roundAndChangeNotation(result);
             copyOperation();
             firstOperand = displayValue;
             secondOperand = null;
@@ -223,11 +223,11 @@ function selectEquals() {
     } else {
         // addresses the first operation
         secondOperand = displayValue;
-        result = operate(Number(firstOperand), firstOperator, Number(secondOperand));
+        result = operate(parseFloat(firstOperand), firstOperator, parseFloat(secondOperand));
         if (isNaN(result)) {
             error();
         } else {
-            displayValue = roundToHundredth(result);
+            displayValue = roundAndChangeNotation(result);
             copyOperation();
             firstOperand = displayValue;
             secondOperand = null;
@@ -239,8 +239,15 @@ function selectEquals() {
     }
 }
 
-function roundToHundredth(num) {
-    return Math.round(num * 100) / 100;
+function roundAndChangeNotation(num) {
+    if (num.toString().length > 10) {
+        if (num % 1 != 0) {
+            num = num.toFixed(2);
+            num = parseFloat(num);
+        }
+        num = num.toExponential(4);
+    }
+    return num;
 }
 
 function addDecimal(dec) {
@@ -266,7 +273,7 @@ function backspace() {
     } else if (firstOperator === null) {
         if (firstOperand === null && displayValueStr.length > 1) {
             displayValue = displayValueStr.slice(0, -1);
-            displayValue = Number(displayValue);
+            displayValue = parseFloat(displayValue);
         } else if (firstOperand === null && displayValueStr.length === 1) {
             displayValue = 0;
         }
@@ -275,7 +282,7 @@ function backspace() {
             displayValue = displayValue;
         } else if (secondOperand === null && displayValueStr.length > 1) {
             displayValue = displayValueStr.slice(0, -1);
-            displayValue = Number(displayValue);
+            displayValue = parseFloat(displayValue);
         } else if (secondOperand === null && displayValueStr.length === 1) {
             displayValue = 0;
         } 
@@ -284,7 +291,7 @@ function backspace() {
             displayValue = displayValue;
         } else if (secondOperand === null && displayValueStr.length > 1) {
             displayValue = displayValueStr.slice(0, -1);
-            displayValue = Number(displayValue);
+            displayValue = parseFloat(displayValue);
         } else if (secondOperand === null && displayValueStr.length === 1) {
             displayValue = 0;
         } 
